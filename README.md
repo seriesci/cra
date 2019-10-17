@@ -1,3 +1,10 @@
+
+# cra
+
+[![badge](https://seriesci.com/seriesci/cra/series/master/coverage.svg)](https://seriesci.com/seriesci/cra/series/master/coverage)
+
+...
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
