@@ -24,10 +24,10 @@ jobs:
       # - run: npm test -- --coverage | grep Statements | awk '{print $3}'
 
       - run:
-        name: post code coverage to seriesci
-        command: |
-          npm test -- --coverage | grep Statements | awk '{print $3}' | xargs -I {} curl \
-            --header "Authorization: Token ${TOKEN}" \
-            --data-urlencode value="{}" \
-            --data sha="${CIRCLE_SHA1}" \
-            https://seriesci.com/api/repos/seriesci/cra/coverage/combined
+          name: post code coverage to seriesci
+          command: |
+            npm test -- --coverage | grep Statements | awk '{print $3}' | xargs -I {} curl \
+              --header "Authorization: Token ${TOKEN}" \
+              --data-urlencode value="{}" \
+              --data sha="${CIRCLE_SHA1}" \
+              https://seriesci.com/api/repos/seriesci/cra/coverage/combined
