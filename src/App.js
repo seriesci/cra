@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import moment from 'moment';
 
 function App() {
   const onClick = () => {
@@ -27,6 +28,9 @@ function App() {
         </button>
         <p>
           some more text
+        </p>
+        <p>
+          {moment().format()}
         </p>
       </header>
     </div>
