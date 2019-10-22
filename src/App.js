@@ -25,6 +25,9 @@ function App() {
         <button onClick={onClick}>
           click
         </button>
+        <p>
+          some more text
+        </p>
       </header>
     </div>
   );
