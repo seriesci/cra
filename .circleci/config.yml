@@ -45,6 +45,7 @@ jobs:
       - run:
           name: post build time to seriesci
           command: |
+              apt install bc
               start=$(date +%s.%N)
               npm run build
               duration=$(echo "$(date +%s.%N) - $start" | bc)
