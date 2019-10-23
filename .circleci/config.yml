@@ -45,6 +45,7 @@ jobs:
       - run:
           name: post build time to seriesci
           command: |
+            apt-get install time
             which time
             $(which time) -f '%es' npm run build >/dev/null | xargs -I {} curl \
               --header "Authorization: Token ${TOKEN}" \
