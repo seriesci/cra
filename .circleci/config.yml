@@ -45,7 +45,8 @@ jobs:
       - run:
           name: post build time to seriesci
           command: |
-            /usr/bin/time -f '%es' npm run build >/dev/null | xargs -I {} curl \
+            which time
+            $(which time) -f '%es' npm run build >/dev/null | xargs -I {} curl \
               --header "Authorization: Token ${TOKEN}" \
               --data-urlencode value="{}" \
               --data sha="${CIRCLE_SHA1}" \
