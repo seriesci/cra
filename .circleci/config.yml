@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:12.12
+      - image: node:12.13-buster
 
     steps:
       - checkout
@@ -45,7 +45,7 @@ jobs:
       - run:
           name: post build time to seriesci
           command: |
-              sudo apt-get install bc
+              apt-get install bc
               start=$(date +%s.%N)
               npm run build
               duration=$(echo "$(date +%s.%N) - $start" | bc)
