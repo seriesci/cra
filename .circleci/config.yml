@@ -41,3 +41,12 @@ jobs:
               --data-urlencode value="{}" \
               --data sha="${CIRCLE_SHA1}" \
               https://seriesci.com/api/repos/seriesci/cra/bundlesize/combined
+
+      - run:
+          name: post build time to seriesci
+          command: |
+            /usr/bin/time -f '%es' npm run build >/dev/null | xargs -I {} curl \
+              --header "Authorization: Token ${TOKEN}" \
+              --data-urlencode value="{}" \
+              --data sha="${CIRCLE_SHA1}" \
+              https://seriesci.com/api/repos/seriesci/cra/time/combined
