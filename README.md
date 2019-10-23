@@ -3,6 +3,7 @@
 
 [![coverage](https://seriesci.com/seriesci/cra/series/master/coverage.svg)](https://seriesci.com/seriesci/cra/series/master/coverage)
 [![bundle size](https://seriesci.com/seriesci/cra/series/master/bundlesize.svg)](https://seriesci.com/seriesci/cra/series/master/bundlesize)
+[![build time](https://seriesci.com/seriesci/cra/series/master/time.svg)](https://seriesci.com/seriesci/cra/series/master/time)
 
 ...
 
