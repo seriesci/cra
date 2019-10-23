@@ -55,3 +55,12 @@ jobs:
               --data-urlencode value="{}" \
               --data sha="${CIRCLE_SHA1}" \
               https://seriesci.com/api/repos/seriesci/cra/time/combined
+
+      - run:
+          name: post number of dependencies to seriesci
+          command: |
+              npm ls --depth=0 --prod --parseable --silent | grep node_modules | wc -l | xargs -I {} curl \
+              --header "Authorization: Token ${TOKEN}" \
+              --data-urlencode value="{}" \
+              --data sha="${CIRCLE_SHA1}" \
+              https://seriesci.com/api/repos/seriesci/cra/dependencies/combined
