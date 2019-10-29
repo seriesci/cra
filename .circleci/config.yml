@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:12.13-buster
+      - image: circleci/node:12.13-buster-browsers
 
     steps:
       - checkout
@@ -22,6 +22,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # - run: npm test -- --coverage | grep Statements | awk '{print $3}'
+
+      - run:
+          name: lighthouse
+          command: |
+            cd build
+            python3 -m http.server 5555 &
+            npx lighthouse http://localhost:5555 --output json --output-path=./lighthouse.json --chrome-flags="--headless"
 
       - run:
           name: post code coverage to seriesci
@@ -64,10 +71,3 @@ jobs:
               --data-urlencode value="{}" \
               --data sha="${CIRCLE_SHA1}" \
               https://seriesci.com/api/repos/seriesci/cra/dependencies/combined
-
-      - run:
-          name: lighthouse
-          command: |
-            cd build
-            python3 -m http.server 5555 &
-            npx lighthouse http://localhost:5555 --output json --output-path=./lighthouse.json --chrome-flags="--headless"
