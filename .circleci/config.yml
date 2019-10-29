@@ -64,3 +64,10 @@ jobs:
               --data-urlencode value="{}" \
               --data sha="${CIRCLE_SHA1}" \
               https://seriesci.com/api/repos/seriesci/cra/dependencies/combined
+
+      - run:
+          name: lighthouse
+          command: |
+            cd build
+            python3 -m http.server 5555 &
+            npx lighthouse http://localhost:5555 --output json --output-path=./lighthouse.json
