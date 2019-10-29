@@ -16,6 +16,7 @@ jobs:
             cd build
             python3 -m http.server 5555 &
             npx lighthouse http://localhost:5555 --output json --output-path=./lighthouse.json --chrome-flags="--headless"
+            cat lighthouse.json
 
       - run:
           name: post code coverage to seriesci
@@ -39,8 +40,8 @@ jobs:
       - run:
           name: post build time to seriesci
           command: |
-              apt-get update
-              apt-get install bc
+              sudo apt-get update
+              sudo apt-get install bc
               start=$(date +%s.%N)
               npm run build
               duration=$(echo "$(date +%s.%N) - $start" | bc)
