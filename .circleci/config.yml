@@ -70,4 +70,4 @@ jobs:
           command: |
             cd build
             python3 -m http.server 5555 &
-            npx lighthouse http://localhost:5555 --output json --output-path=./lighthouse.json
+            npx lighthouse http://localhost:5555 --output json --output-path=./lighthouse.json --chrome-flags="--headless"
