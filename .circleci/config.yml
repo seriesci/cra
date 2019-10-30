@@ -21,6 +21,21 @@ jobs:
               --data-urlencode value="{}" \
               --data sha="${CIRCLE_SHA1}" \
               https://seriesci.com/api/repos/seriesci/cra/performance/combined
+            node -p "require('./lighthouse.json').categories.accessibility.score * 100 + '%'" | xargs -I {} curl \
+              --header "Authorization: Token ${TOKEN}" \
+              --data-urlencode value="{}" \
+              --data sha="${CIRCLE_SHA1}" \
+              https://seriesci.com/api/repos/seriesci/cra/accessibility/combined
+            node -p "require('./lighthouse.json').categories['best-practices'].score * 100 + '%'" | xargs -I {} curl \
+              --header "Authorization: Token ${TOKEN}" \
+              --data-urlencode value="{}" \
+              --data sha="${CIRCLE_SHA1}" \
+              https://seriesci.com/api/repos/seriesci/cra/practices/combined
+            node -p "require('./lighthouse.json').categories.seo.score * 100 + '%'" | xargs -I {} curl \
+              --header "Authorization: Token ${TOKEN}" \
+              --data-urlencode value="{}" \
+              --data sha="${CIRCLE_SHA1}" \
+              https://seriesci.com/api/repos/seriesci/cra/seo/combined
 
       - run:
           name: post code coverage to seriesci
