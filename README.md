@@ -5,6 +5,10 @@
 [![bundle size](https://seriesci.com/seriesci/cra/series/master/bundlesize.svg)](https://seriesci.com/seriesci/cra/series/master/bundlesize)
 [![build time](https://seriesci.com/seriesci/cra/series/master/time.svg)](https://seriesci.com/seriesci/cra/series/master/time)
 [![dependencies](https://seriesci.com/seriesci/cra/series/master/dependencies.svg)](https://seriesci.com/seriesci/cra/series/master/dependencies)
+[![performance](https://seriesci.com/seriesci/cra/series/master/performance.svg)](https://seriesci.com/seriesci/cra/series/master/performance)
+[![accessibility](https://seriesci.com/seriesci/cra/series/master/accessibility.svg)](https://seriesci.com/seriesci/cra/series/master/accessibility)
+[![practices](https://seriesci.com/seriesci/cra/series/master/practices.svg)](https://seriesci.com/seriesci/cra/series/master/practices)
+[![seo](https://seriesci.com/seriesci/cra/series/master/seo.svg)](https://seriesci.com/seriesci/cra/series/master/seo)
 
 ...
 
